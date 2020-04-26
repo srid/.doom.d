@@ -44,40 +44,6 @@
 (add-hook! 'markdown-mode-hook #'flycheck-mode)
 (add-hook! 'neuron-mode-hook #'flycheck-mode)
 
-(after! neuron-mode
-  (setq neuron-generate-on-save nil))
-
-(load! "/home/srid/code/neuron-mode/neuron-mode")
-
-(map! :leader
-      (:prefix ("z" . "zettel")
-        "z"  #'neuron-new-zettel
-        "e"  #'neuron-edit-zettel
-        "s"  #'neuron-select-zettelkasten
-        "o"  #'neuron-open-current-zettel
-        "g"  #'neuron-rib-generate
-        (:prefix ("r" . "rib")
-          "s" #'neuron-rib-serve
-          "o" #'neuron-rib-open-zettel
-          "z" #'neuron-rib-open-z-index
-          "k" #'neuron-rib-kill
-          )
-        )
-      )
-
-(map! :map neuron-mode-map
-      :localleader
-      "o"      #'neuron-follow-thing-at-point
-      (:prefix ("z" . "zettel")
-        "z"    #'neuron-new-zettel
-        "t"    #'neuron-select-tag
-        "e"    #'neuron-edit-zettel
-        "o"    #'neuron-rib-open-current-zettel
-        "l"    #'neuron-insert-zettel-link
-        "L"    #'neuron-insert-new-zettel
-        )
-      )
-
 (use-package! ormolu)
   ;; :hook (haskell-mode . ormolu-format-on-save-mode))
 
