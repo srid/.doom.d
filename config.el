@@ -52,6 +52,14 @@
  :localleader
  "f" #'ormolu-format-buffer)
 
+(map! :map neuron-mode-map
+      :localleader
+      (:prefix ("f" . "format")
+        "b"    #'markdown-insert-bold
+        "i"    #'markdown-insert-italic
+        )
+      )
+
 ;; (after! ormolu
 ;; (setq ormolu-process-path "/home/srid/.nix-profile/bin/ormolu"))
 
